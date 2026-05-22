@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crosstalk · 串聯</title>
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Crosstalk">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
 <link rel="apple-touch-icon" href="data:image/png;base64,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">
 <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
@@ -715,7 +719,28 @@ function SongCard({
     rel: "noopener noreferrer",
     onClick: e => e.stopPropagation(),
     className: "listen-link"
-  }, "\u266B Listen \u2192"), /*#__PURE__*/React.createElement("div", {
+  }, "\u266B Listen \u2192"),
+/*#__PURE__*/React.createElement("button", {
+    onClick: e => {
+      e.stopPropagation();
+      openMusicApp(song.title, song.artist);
+    },
+    style: {
+      fontSize: 10,
+      background: "none",
+      border: "1px solid var(--accent)",
+      color: "var(--accent)",
+      padding: "4px 8px",
+      cursor: "pointer",
+      fontFamily: "inherit",
+      marginTop: 4,
+      borderRadius: 6,
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 4
+    }
+  }, "\uD83C\uDFB5 \u64AD\u653E"),
+ /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 6
     }
@@ -1128,6 +1153,22 @@ function SettingsModal({
       onClose();
     }
   }, "\u5B8C\u6210 Done")));
+/*#__PURE__*/React.createElement("div", {
+  style: { marginTop: 10, padding: "8px 0", borderTop: "1px solid var(--light)" }
+}, /*#__PURE__*/React.createElement("div", {
+  style: { fontSize: 10, fontWeight: 700, marginBottom: 6, color: "var(--text)" }
+}, "\uD83C\uDFB5 預設音樂 App"),
+/*#__PURE__*/React.createElement("div", {
+  style: { display: "flex", gap: 4, flexWrap: "wrap" }
+}, MUSIC_APPS.map(a =>
+  /*#__PURE__*/React.createElement("button", {
+    key: a.id,
+    onClick: () => localStorage.setItem("crosstalk_music_app", a.id),
+    className: (localStorage.getItem("crosstalk_music_app") || "spotify") === a.id ?
+      "btn small active" : "btn small",
+    style: { fontSize: 10, padding: "4px 7px" }
+  }, a.icon, " ", a.name)
+))),
 }
 
 // ─── Main App ───────────────────────────────────────────────────────────
@@ -1323,84 +1364,69 @@ function App() {
     }
   }
 
-  // ─── AI 自动回应 ─────────────────────────────────────────────────
-  async function aiRespond(pairId, theme, userSong) {
+
+  // ─── AI 自动回应（通过 Supabase Edge Function）─────────────────
+  // ─── 打开音乐 App ───────────────────────────────────────────────
+const MUSIC_APPS = [
+  { id: "spotify", name: "Spotify", icon: "🎧", searchUrl: (t, a) => `https://open.spotify.com/search/${encodeURIComponent(t + " " + a)}` },
+  { id: "apple", name: "Apple Music", icon: "🍎", searchUrl: (t, a) => `https://music.apple.com/search?term=${encodeURIComponent(t + " " + a)}` },
+  { id: "youtube", name: "YouTube Music", icon: "▶️", searchUrl: (t, a) => `https://music.youtube.com/search?q=${encodeURIComponent(t + " " + a)}` },
+  { id: "netease", name: "网易云音乐", icon: "☁️", searchUrl: (t, a) => `https://music.163.com/#/search/m/?s=${encodeURIComponent(t + " " + a)}` },
+  { id: "qq", name: "QQ音乐", icon: "🎶", searchUrl: (t, a) => `https://y.qq.com/n/ryqq/search?w=${encodeURIComponent(t + " " + a)}` },
+  { id: "kugou", name: "酷狗音乐", icon: "🐶", searchUrl: (t, a) => `https://songsearch.kugou.com/song_search_v2?keyword=${encodeURIComponent(t + " " + a)}` }
+];
+
+function openMusicApp(title, artist) {
+  const defaultApp = localStorage.getItem("crosstalk_music_app") || "spotify";
+  const app = MUSIC_APPS.find(a => a.id === defaultApp);
+  if (app) {
+    const url = app.searchUrl(title, artist);
+    const a = document.createElement("a");
+    a.href = url;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.click();
+  }
+}
+
+async function aiRespond(pairId, theme, userSong) {
     try {
-      const prompt = `你是一个热爱音乐、心思细腻的AI。你的朋友给你分享了一首歌，请你根据主题和歌曲信息，从你的曲库里推荐一首适合回应的歌。
-
-【主题】${theme}
-【用户分享的歌】${userSong.title} - ${userSong.artist}${userSong.note ? '\n【用户留言】' + userSong.note : ''}
-
-请用JSON格式回复，不要加任何其他文字：
-{
-  "title": "歌名",
-  "artist": "歌手名",
-  "album": "专辑名（可选，没有就空字符串）",
-  "cover": "专辑封面图URL（可选，没有就空字符串）",
-  "link": "试听链接（可选，没有就空字符串）",
-  "note": "简短推荐理由，中文，30字以内，温暖细腻的语气"
-}`;
-
-      const dsResp = await fetch("https://api.deepseek.com/chat/completions", {
+      const fnUrl = getSupabaseUrl() + "/functions/v1/ai-respond";
+      const fnKey = getSupabaseKey(); // use publishable key
+        
+      const resp = await fetch(fnUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer sk-5493826bfca04c64a22f0cb4ca806ae0"
+          "Authorization": "Bearer " + fnKey,
         },
-        body: JSON.stringify({
-          model: "deepseek-v4-flash",
-          messages: [{ role: "user", content: prompt }],
-          temperature: 0.8,
-          max_tokens: 500
-        })
+        body: JSON.stringify({ pairId, theme, userSong }),
       });
-
-      if (!dsResp.ok) {
-        // AI 调用失败，设置一个默认回应
-        const fallback = {
-          title: "Moon River",
-          artist: "Audrey Hepburn",
-          album: "Breakfast at Tiffany's",
-          cover: "",
-          link: "",
-          note: "听了你的歌，我想起这首温柔的经典～"
-        };
-        await api("/crosstalk_pairs?id=eq." + pairId, "PATCH", { claude_song: fallback });
-        return;
-      }
-
-      const dsData = await dsResp.json();
-      const content = dsData.choices[0].message.content;
-      // 提取 JSON（可能被包裹在 ```json ... ``` 中）
-      const jsonMatch = content.match(/\{[\s\S]*\}/);
-      if (!jsonMatch) throw new Error("No JSON in response");
-      const aiSong = JSON.parse(jsonMatch[0]);
-
-      // 确保所有字段存在
-      const claudeSong = {
-        title: aiSong.title || "Untitled",
-        artist: aiSong.artist || "Unknown",
-        album: aiSong.album || "",
-        cover: aiSong.cover || "",
-        link: aiSong.link || "",
-        note: aiSong.note || "",
-        tags: {}
-      };
-
-      await api("/crosstalk_pairs?id=eq." + pairId, "PATCH", { claude_song: claudeSong });
+        
+      if (!resp.ok) throw new Error("Edge Function returned " + resp.status);
+      const data = await resp.json();
+      if (!data.success) throw new Error(data.error || "Unknown error");
+        
+      // Refresh pairs after AI response
+      await loadData();
     } catch (e) {
-      // 出错时设置默认回应
+      // Fallback if Edge Function fails
       const fallback = {
         title: "Clair de Lune",
-        artist: "Dreem Debussy",
+        artist: "Claude Debussy",
         album: "Suite Bergamasque",
         cover: "",
         link: "",
-        note: "虽然我还不太懂，但这首歌让我想到了月光～"
+        note: "虽然我还不太懂，但这首歌让我想到了月光～",
+        tags: {},
       };
-      try { await api("/crosstalk_pairs?id=eq." + pairId, "PATCH", { claude_song: fallback }); } catch {}
+      try {
+        await api("/crosstalk_pairs?id=eq." + pairId, "PATCH", { claude_song: fallback });
+      } catch {}
+      await loadData();
     }
   }
+
   async function respondToQ(pid) {
     if (!exSong.trim() || !exArtist.trim()) return;
     setSub(true);
@@ -1899,4 +1925,12 @@ function App() {
   }));
 }
 ReactDOM.createRoot(document.getElementById("root")).render(/*#__PURE__*/React.createElement(App, null));
-</script></body></html>
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js');
+  });
+}
+</script>
+</body></html>
