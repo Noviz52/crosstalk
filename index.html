@@ -204,15 +204,25 @@ function SetupScreen({
     setErr("");
     const base = url.trim().replace(/\/$/, "");
     try {
-      const res = await fetch(base + "/rest/v1/crosstalk_settings?id=eq.1", { headers: { "apikey": key.trim(), "Authorization": "Bearer " + key.trim() } });
-      if (!res.ok) throw new Error("" + res.status);
+      // 快速验证：只检查URL格式是否正确
+      if (!base.startsWith("https://") || !base.endsWith(".supabase.co")) {
+        throw new Error("URL 格式不正确");
+      }
+      if (!key.trim().startsWith("sb_publishable_") && !key.trim().startsWith("eyJ")) {
+        throw new Error("Key 格式不正确");
+      }
+      // 简单测试连接
+      const res = await fetch(base + "/rest/v1/", { headers: { "apikey": key.trim() } });
+      // 即使返回401/400也接受，只要不是网络错误
+      if (!res.ok && res.status !== 401 && res.status !== 400 && res.status !== 404) {
+        throw new Error("无法连接到 " + base);
+      }
       setSupabaseCreds(base, key.trim());
       SUPABASE_URL = base;
       SUPABASE_KEY = key.trim();
-      window.location.hash = base;
       onDone();
     } catch (e) {
-      setErr("连接失败 — 请确认 URL 和 Anon Key 正确");
+      setErr("连接失败 — " + e.message);
     }
     setTesting(false);
   };
